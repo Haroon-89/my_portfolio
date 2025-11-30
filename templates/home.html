@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section with Profile -->
+<section class="hero-section">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                <img src="{{ url_for('static', filename='images/' + info.profile_pic) }}" 
+                     alt="{{ info.name }}" 
+                     class="profile-img">
+            </div>
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-3">Hi, I'm {{ info.name }}</h1>
+                <h2 class="h3 text-primary mb-4">
+                    <span class="typing-title" id="typingText"></span>
+                </h2>
+                <p class="lead mb-4">{{ info.about }}</p>
+                <p class="mb-4">
+                    <i class="fas fa-map-marker-alt text-primary me-2"></i>{{ info.location }}
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="/projects" class="btn btn-primary btn-lg">
+                        <i class="fas fa-briefcase me-2"></i>View Projects
+                    </a>
+                    <a href="mailto:{{ info.email }}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-envelope me-2"></i>Contact Me
+                    </a>
+                    <a href="https://wa.me/{{ info.whatsapp }}" target="_blank" class="btn btn-success btn-lg">
+                        <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5 fw-bold">Skills & Technologies</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    {% for skill in info.skills %}
+                    <span class="badge bg-primary fs-5 px-4 py-2">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5 fw-bold">Featured Projects</h2>
+        <div class="row g-4">
+            {% for project in info.projects %}
+            <div class="col-lg-6">
+                <div class="card project-card h-100 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/' + project.image) }}" 
+                         class="card-img-top project-img" 
+                         alt="{{ project.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ project.title }}</h5>
+                        <p class="card-text">{{ project.description }}</p>
+                        <div class="mb-3">
+                            {% for tech in project.tech %}
+                            <span class="badge bg-secondary me-1 mb-1">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a href="{{ project.demo }}" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                            </a>
+                            <a href="{{ project.github }}" target="_blank" class="btn btn-outline-dark">
+                                <i class="fab fa-github me-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-5">
+            <a href="/projects" class="btn btn-primary btn-lg">View All Projects</a>
+        </div>
+    </div>
+</section>
+
+<!-- Typing Animation Script -->
+<script>
+    const titles = [
+        "AI & Machine Learning Enthusiast",
+        "Data Scientist",
+        "Deep Learning in Healthcare",
+        "Full Stack Developer (Java & Python)",
+        "Computer Vision Explorer"
+    ];
+
+    let index = 0;
+    const typingElement = document.getElementById("typingText");
+    const changeDuration = 2000; // Change every 2 seconds
+
+    function changeTitle() {
+        typingElement.style.opacity = 0;
+
+        setTimeout(() => {
+            typingElement.textContent = titles[index];
+            typingElement.style.opacity = 1;
+
+            index = (index + 1) % titles.length;
+        }, 300);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        typingElement.textContent = titles[index];
+        index++;
+        setInterval(changeTitle, changeDuration);
+    });
+</script>
+
+<style>
+    #typingText {
+        transition: opacity 0.4s ease-in-out;
+    }
+</style>
+{% endblock %}

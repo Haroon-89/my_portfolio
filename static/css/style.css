@@ -1,0 +1,259 @@
+/* Dark Theme Variables */
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --bg-card: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-color: #404040;
+    --accent-color: #0d6efd;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* Profile Image */
+.profile-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid #0d6efd;
+    box-shadow: 0 10px 30px rgba(13, 110, 253, 0.4);
+}
+
+/* Typing Title */
+.typing-title {
+    display: inline-block;
+    min-width: 400px;
+    height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#typingText {
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-primary);
+}
+
+/* Sections */
+section {
+    background-color: var(--bg-primary);
+}
+
+.bg-light {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Cards */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.card-body {
+    color: var(--text-primary);
+}
+
+.card-text {
+    color: var(--text-secondary);
+}
+
+/* Project Cards */
+.project-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(13, 110, 253, 0.3) !important;
+}
+
+.project-img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.project-detail-img {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Credential Cards */
+.credential-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+.credential-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(13, 110, 253, 0.3) !important;
+}
+
+/* Contact Links */
+.contact-link {
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s, color 0.3s;
+    display: block;
+}
+
+.contact-link:hover {
+    color: #0d6efd;
+    transform: scale(1.1);
+}
+
+/* Badges */
+.badge {
+    font-weight: 500;
+}
+
+.badge.bg-primary {
+    background-color: #0d6efd !important;
+}
+
+.badge.bg-secondary {
+    background-color: #404040 !important;
+}
+
+/* Text Colors */
+.text-muted {
+    color: var(--text-secondary) !important;
+}
+
+.text-primary {
+    color: #0d6efd !important;
+}
+
+.lead {
+    color: var(--text-secondary);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0b5ed7;
+}
+
+.btn-outline-primary {
+    color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: white;
+}
+
+.btn-outline-dark {
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--bg-card);
+    border-color: var(--border-color);
+    color: white;
+}
+
+.btn-outline-success {
+    color: #198754;
+    border-color: #198754;
+}
+
+.btn-outline-success:hover {
+    background-color: #198754;
+    color: white;
+}
+
+.btn-outline-warning {
+    color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #000;
+}
+
+/* HR Divider */
+hr {
+    border-color: var(--border-color);
+    opacity: 0.3;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+}
+
+/* Navbar (already dark) */
+.navbar-dark {
+    background-color: #0a0a0a !important;
+}
+
+/* Contact Section (already dark) */
+#contact {
+    background-color: #0a0a0a !important;
+}
+
+/* Footer (already dark) */
+footer {
+    background-color: #0a0a0a !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .project-img {
+        height: 200px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .typing-title {
+        min-width: 300px;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #505050;
+}
