@@ -24,12 +24,13 @@ A modern, dark-themed portfolio website built with Flask showcasing my projects,
 - **Deployment:** [Platform Name]
 
 ## Project Structure
+```bash
 my-portfolio/
 ├── app.py                      # Main Flask application
 ├── requirements.txt            # Python dependencies
 ├── README.md                   # This file
 ├── templates/
-│   ├── base.html              # Base template with navbar & footer
+│   ├── base.html              # Base template with navbar footer
 │   ├── home.html              # Homepage with hero section
 │   ├── projects.html          # Projects showcase page
 │   └── credentials.html       # Resume, certificates, awards
@@ -58,6 +59,7 @@ my-portfolio/
         │   └── [course_certificates].pdf
         └── awards/
             └── scholarship_letter.pdf
+```
 
 ## Installation & Setup
 
